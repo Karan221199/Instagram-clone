@@ -58,7 +58,7 @@ const   SignUp = ()=>{
                 }
                  />
                  <input
-                type="text"
+                type="password"
                 placeholder="password"
                 value={password}
                 onChange={(e)=>

@@ -4,5 +4,9 @@ export const reducer = (state,action)=>{
     {
     return action.payload
     }
+    if(action.type=="Clear")
+    {
+        return null
+    }
     return state
 }
