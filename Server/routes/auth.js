@@ -17,7 +17,7 @@ const requireLogin=require('../middleware/requireLogin')
 })*/
 
 router.post('/signup',(req,res)=>{
-    const {name,email,password} = req.body
+    const {name,email,password,pic} = req.body
     if(!email  || !password || !name){
         return res.status(422).json({error: "please fill all the fields"})
     }
@@ -32,7 +32,8 @@ router.post('/signup',(req,res)=>{
             const user=new User({
                 email,
                 password:hashedpassword,
-                name
+                name,
+                pic
             })
             user.save().then(user=>{
                 res.json({message:"saved successfully"})
@@ -69,8 +70,8 @@ router.post('/signin',(req,res)=>{
                // res.json({message:"login succesffully"})
                // we are generating the token on user id and assigning it in id
                const token=jwt.sign({_id:savedUser._id},JWT_SECRET)
-               const {_id,name,email}=savedUser
-               res.json({token,user:{_id,name,email}})
+               const {_id,name,email,followers,following,pic}=savedUser
+               res.json({token,user:{_id,name,email,followers,following,pic}})
             }
             else
             {

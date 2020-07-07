@@ -8,6 +8,8 @@ import Signin from './components/screens/Signin'
 import CreatePost from './components/screens/CreatePost'
 import {BrowserRouter,Route,Switch,useHistory} from 'react-router-dom'
 import {reducer,initialState} from './reducers/userReducer'
+import UserProfile from './components/screens/UserProfile'
+import SubscribedUserPosts from './components/screens/SubscribedUserPosts'
 export const UserContext= createContext()
 
 const Routing=()=>{
@@ -38,11 +40,17 @@ const Routing=()=>{
     <SignUp />
   </Route>
 
-  <Route path="/profile">
+  <Route exact path="/profile">
     <Profile />
   </Route>
   <Route path="/create">
     <CreatePost />
+  </Route>
+  <Route path="/profile/:userid">
+    <UserProfile />
+  </Route>
+  <Route path="/myfollowingpost">
+    <SubscribedUserPosts />
   </Route>
   </Switch>
 
