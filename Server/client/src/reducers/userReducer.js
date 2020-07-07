@@ -15,5 +15,11 @@ export const reducer = (state,action)=>{
             following:action.payload.following
         }
     }
+    if(action.type=="UPDATEPIC"){
+        return{
+            ...state,// this is how we append in state
+            pic:action.payload
+        }
+    }
     return state
 }

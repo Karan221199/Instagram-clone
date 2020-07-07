@@ -113,11 +113,16 @@ const Home = ()=>{
            <div className="home">
                {
                    data.map(item=>{
+               
+                       
                        return(
                            // is h5 me agr user apni koi pic pe click krega to usko apni khud ki profile show hogi
                            // ni toh us bnde ki
+                           
                         <div className="card home-card" key={item._id}>
-    
+                             <img style={{width:"40px",height:"40px",borderRadius:"40px" }}
+                src={item.postedBy.pic}
+                />
                         <h5 style={{padding:"5px"}}><Link to={ item.postedBy._id!== state._id ?"/profile/"+item.postedBy._id:"/profile"}>{item.postedBy.name}</Link>
                         {
                             item.postedBy._id== state._id &&  
